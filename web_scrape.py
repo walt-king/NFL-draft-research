@@ -8,7 +8,7 @@ Created on Tue Feb 26 07:33:15 2019
 import urllib
 from bs4 import BeautifulSoup
 
-draft_year = 2006
+draft_year = 2009
 start_num = 0
 link_num = 10
 ##PLAYER RANKINGS BY PAGE (1-25)
@@ -41,7 +41,7 @@ player_bio = [0,1,5,7]
 bio_vals = []
 
 list_vals = []
-##NFL COMBINE MEASUREMENTS (for years <2008 use values - 2)
+##NFL COMBINE MEASUREMENTS, assuming Height starts at 4 (it varies), numbers are relative
 #4 = Height
 #6 = Weight
 #8 = 40 Yd
@@ -89,11 +89,19 @@ for u in range(0, len(url_list)):
         drafted = "Undrafted"
     bio_vals.append(drafted)
     ##PULL MEASUREMENT DATA
-    check = soup.find_all('font', {"face":"Verdana,Geneva,Arial,Helvetica,sans-serif", "size":"-2", "color":"#000000"})[3]
-    if check.text == "Height:":
-        player_measurements = [4,6,8,12,16,20,22,24,26,28,32,34,36,42,44,46,48,50,52,54,56]
+    check_num = 0
+    check = soup.find_all('font', {"face":"Verdana,Geneva,Arial,Helvetica,sans-serif", "size":"-2", "color":"#000000"})[check_num]
+    if check.text != "Height:":                               
+        while check.text != "Height:":
+            check_num += 1
+            check = soup.find_all('font', {"face":"Verdana,Geneva,Arial,Helvetica,sans-serif", "size":"-2", "color":"#000000"})[check_num]
     else:
-        player_measurements = [2,4,6,10,14,18,20,22,24,26,30,32,34,40,42,44,46,48,50,52,54]
+        check_num = 0
+    player_measurements = [check_num + 1, check_num + 3, check_num + 5, check_num + 9, check_num + 13, \
+                           check_num + 17, check_num + 19, check_num + 21, check_num + 23, check_num + 25, \
+                           check_num + 29, check_num + 31, check_num + 33, check_num + 39, check_num + 41, \
+                           check_num + 43, check_num + 45, check_num + 47, check_num + 49, check_num + 51, \
+                           check_num + 53]
     for i in player_measurements:
         try:
             font = soup.find_all('font', {"face":"Verdana,Geneva,Arial,Helvetica,sans-serif", "size":"-2", "color":"#000000"})[i]
