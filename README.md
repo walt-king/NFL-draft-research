@@ -1,8 +1,8 @@
-# NFL-draft-research
+# Model Output
+
+I've decided to take the novel approach of using player ratings from EA Sports' Madden video game franchise as a proxy for player production, skill, and value during a player's first 4 years in the league.  This is beneficial for a number of reasons.  The first is that these ratings provide continuous output on a consistent scale across both years and positions; a player rated 99 overall is considered to be elite at their position, regardless of the unique responsibilities or challenges in quantifying performance specific to that position.  The second reason is that Madden ratings predate modern quantitative evaluative metrics like those provided by Football Outsiders or Pro Football Focus. 
 
 NFL rookie contract length is 4 seasons (along with a fifth year club option for first-round picks), while the average career length in the NFL is less than 4 years.  As such, when building a draft model is makes sense to only consider production accrued during the first 4 years of a player's career.
-
-I've decided to take the novel approach of using player ratings from EA Sports' Madden video game franchise as a proxy for player production, skill, and value during a player's first 4 years in the league.  This is beneficial for a number of reasons.  The first is that these ratings provide continuous output on a consistent scale across both years and positions; a player rated 99 overall is considered to be elite at their position, regardless of the unique responsibilities or challenges in quantifying performance specific to that position.  The second reason is that Madden ratings predate modern quantitative evaluative metrics like those provided by Football Outsiders or Pro Football Focus.  
 
 Madden ratings explained - https://fivethirtyeight.com/features/madden/#
 
@@ -13,6 +13,8 @@ Year 1 represents the Madden rating given to each player following their rookie 
 While this metric on the whole does a good job of ranking player talent and production, it is blind to players who peaked later in their careers or those who had short careers.  Notable examples of each include Eric Weddle (84.6 rating, eventual 2x All Pro, 6x Pro Bowl) and Jon Beason (95.4 rating, 1x All-Pro, 3x Pro Bowl).  Weddle did not reach his peak until after re-signing with the Chargers as an unrestricted free agent prior to the 2011 season, and could have presumably reached his peak while playing for another team.  Beason suffered an Achilles injury during the 2011 season and eventually lost his job with the Panthers, starting in only 26 games in the years following his rating window.  Beason would have been eligible to sign as a free agent following the 2011 season had the Panthers not offered a contract extension.  
 
 In the NFL, the drafting team maintains the exclusive right to employ each player for 4 years following their selection, thus it is incumbent upon the team to select and develop players who provide the most value during that period.  For that reason I stand by the decision to evaluate draft selections only on a player's first 4 years in the league.  
+
+# Dataset
 
 The dataset covers the 2006-2014 draft classes and includes players who were ranked in NFL Draft Scout's top 300 in their draft year.  I have removed all quarterbacks, kickers, punters, long snappers, and fullbacks due to the relatively small sample sizes or extreme specialization that each position requires.  It might be valuable to evaluate these positions later – particularly quarterbacks – but for now the model focuses exclusively on the following 13 positions, bucketed into 7 position groups.
 
