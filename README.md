@@ -1,3 +1,7 @@
+# Research Goal
+
+To build an NFL draft model capable of producing meaningful player predictions.  I plan to do so using a Random Forest trained on NFL Combine and Pro Day physical measurements, individual and team college statistics, and engineered features.  Player performance is impacted by round and team selection in the draft - first-round selections receive more opportunities than seventh-round selections, different schemes fit some players better.  Because of this it's also important to include some regression to publicly available consensus draft rankings.
+
 # Model Output
 
 I've decided to take the novel approach of using player ratings from EA Sports' Madden video game franchise as a proxy for player production, skill, and value during a player's first 4 years in the league.  This is beneficial for a number of reasons.  The first is that these ratings provide continuous output on a consistent scale across both years and positions; a player rated 99 overall is considered to be elite at their position, regardless of the unique responsibilities or challenges in quantifying performance specific to that position.  The second reason is that Madden ratings predate modern quantitative evaluative metrics like those provided by Football Outsiders or Pro Football Focus. 
