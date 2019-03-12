@@ -1,6 +1,6 @@
 # Research Goal
 
-To build an NFL draft model capable of producing meaningful player predictions.  I plan to do so using a Random Forest trained on NFL Combine and Pro Day physical measurements, individual and team college statistics, and engineered features.  Player performance is impacted by round and team selection in the draft - first-round selections receive more opportunities than seventh-round selections, different schemes fit some players better.  Because of this it's also important to include some regression to publicly available consensus draft rankings.
+To build an NFL draft model capable of producing meaningful player predictions.  I plan to do so using a fuzzy Random Forest trained on NFL Combine and Pro Day physical measurements, individual and team college statistics, and engineered features.  Player performance is impacted by round and team selection in the draft - first-round selections receive more opportunities than seventh-round selections, different schemes fit some players better.  Because of this the model performance can be greatly improved by including some regression to publicly available consensus draft rankings.
 
 # Model Output
 
