@@ -123,7 +123,7 @@ We have a wealth of NFL Combine and Pro Day data but not every player has partic
 
 Because many of these physical measurements are correlated and most football positions require some degree physical specialization (size, speed, etc.), I've chosen a k nearest neighbor imputation method.  The belief is that if Players A and B are similar in terms of position, size, speed, and quickness, then the two players will also have similar strength or jumping ability.  The exceptions are draft age and wingspan, which can be reasonably predicted using population means.
 
-![alt text](https://i.imgur.com/Qd6gLQ0/to/img.png)
+![alt text](https://i.imgur.com/Qd6gLQ0.png)
 
 
 
