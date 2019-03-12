@@ -130,38 +130,38 @@ Perhaps the most essential component of a machine learning model is feature engi
 
 Modern feeling toward physical measurements taken at the Combine is highly dubious, and I agree that each measurement taken in isolation cannot alone adequately define athleticism, much less predict success.  However, there exist more complex metrics which can better perform both tasks across a large enough sample.  
 
-**Body Mass Index (BMI)** \
+**Body Mass Index (BMI)**
 - Body weight (kg) divided by squared height (meters); an attempt to measure the relative amount of mass in an individual
-
-**Speed Score** \
-- https://www.footballoutsiders.com/stat-analysis/2018/speed-score-2018 \
-- An attempt to contextualize speed, rewards heavier players, all else equal \
+ \
+**Speed Score**
+- https://www.footballoutsiders.com/stat-analysis/2018/speed-score-2018
+- An attempt to contextualize speed, rewards heavier players, all else equal
 - *Top performers*: Vernon Davis, Calvin Johnson
-
-**Height-Adjusted Speed Score** \
-- http://moneyinthebananastand.com/2012/04/24/dominator-rating-height-adjusted-speed-score-and-wr-draft-rankings/ \
-- An attempt to improve upon Speed Score, rewards taller players, all else equal \
+ \
+**Height-Adjusted Speed Score**
+- http://moneyinthebananastand.com/2012/04/24/dominator-rating-height-adjusted-speed-score-and-wr-draft-rankings/
+- An attempt to improve upon Speed Score, rewards taller players, all else equal
 - *Top performers*: Jadeveon Clowney, Lane Johnson
-
-**Vertical Jump Power** \
-- https://www.topendsports.com/testing/vertical-jump-power.htm \
-- An attempt to measure lower body force generation using Sayers Power formula \
+ \
+**Vertical Jump Power**
+- https://www.topendsports.com/testing/vertical-jump-power.htm
+- An attempt to measure lower body force generation using Sayers Power formula
 - *Top performers*: Mario Williams, Ndamukong Suh
-
-**Broad Jump Power** \
-- Same as Vertical Jump power, using Broad Jump \
+ \
+**Broad Jump Power**
+- Same as Vertical Jump power, using Broad Jump
 - *Top performers*: Jamie Collins, Calvin Johnson
-
-**Quickness Score** \
-- Same as Speed Score, replacing 40-Yard Dash time with mean of 10-Yard Split, 20-Yard Shuttle, and 3 Cone Drill \
+ \
+**Quickness Score**
+- Same as Speed Score, replacing 40-Yard Dash time with mean of 10-Yard Split, 20-Yard Shuttle, and 3 Cone Drill
 - *Top performers*: J.J. Watt, A.J. Hawk
-
-**Weight-Adjusted Bench** \
-- 225 * bench press reps, divided by body weight, then adjusted by arm length; rewards player with longer arms, all else equal \
+ \
+**Weight-Adjusted Bench**
+- 225 * bench press reps, divided by body weight, then adjusted by arm length; rewards player with longer arms, all else equal
 - *Top performers*: Stephen Paea, Chris Houston
-
-**Catch Radius** \
-- 3-dimensional space occupied by the player.  Dimension 1: height, vertical jump, arm length.  Dimension 2: broad jump, distance covered at top speed.  Dimension 3: wingspan, lateral quickness \
+ \
+**Catch Radius**
+- 3-dimensional space occupied by the player.  Dimension 1: height, vertical jump, arm length.  Dimension 2: broad jump, distance covered at top speed.  Dimension 3: wingspan, lateral quickness
 - *Top performers*: Julio Jones, Antonio Cromartie
 
 
