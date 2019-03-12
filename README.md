@@ -76,6 +76,7 @@ There is an enormous benefit in using Pro Day measurements in a model like this.
 However, there is bias observed in Pro Day measurements.  Pro Days are typically scheduled in the weeks following the NFL Combine, giving players more time to train for the specific physical events.  Furthermore, they often take place at the players' home campuses in environments in which the players feel more comfortable.  Lastly, many events (most notably the 40-yard dash) are hand-timed at Pro Days, leading to better reported times than the electronic times at the Combine.  Each of these factors contributes to improvement in every event among the population of players who participated both at the NFL Combine and at their university Pro Day.
 
 **Players who participated in both NFL Combine and Pro Day**
+
 | Measurement |	Combine |	Pro Day |	n |	Sigma |	Adjustment |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | 40 Yard Dash |	4.80 |	4.70 |	831 |	0.076	| + 0.07 |
@@ -90,7 +91,9 @@ However, there is bias observed in Pro Day measurements.  Pro Days are typically
 In order to correct for this bias, I've (somewhat arbitrarily) chosen to shift recorded Pro Day measurements by 70% of the mean delta.  Even when we correct for some of the systematic bias observed in Pro Day measurements, we must also recognize that most physical measurements aren't static.  Some players aren't performing at maximum physical capacity on the day of the Combine<sup>1</sup>, occasionally players injure themselves during their workout<sup>2</sup>, and the measurements aren't always recorded with perfect accuracy or consistency<sup>3</sup>.  
 
 <sup>1</sup> https://www.cleveland.com/osu/2018/03/ohio_state_defensive_end_tyqua_1.html
+
 <sup>2</sup> https://www.washingtontimes.com/news/2019/mar/3/dexter-lawrence-clemson-prospect-injures-hamstring/
+
 <sup>3</sup> https://www.zybeksports.com/hand-timed-versus-electronic-timed-40-yard-dash/
 
 A dataset with this much uncertainty lends itself well to fuzzy set theory.  In simple terms, this will allow us to consider not only a player's recorded 40 yard time of 4.40, but will also consider some probability that their "true" speed is 4.39 or 4.43.  So when the model attempts to predict NFL success given a player's 40 yard dash time, it's not based on a singular number but rather a distribution of times centered around that number.
