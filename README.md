@@ -24,7 +24,7 @@ The dataset covers the 2006-2014 draft classes and includes players who were ran
 
 The dataset restrictions exclude some notable players ranked outside of the top 300, both drafted and undrafted, who went on to varying degrees of success in the NFL.  At the top extreme are 4-time All Pro Antonio Brown and Super Bowl LIII MVP Julian Edelman.  But while many players on this list never played a down in the NFL, it is important to be aware of which players are excluded and it may be worthwhile to expand the dataset in the future.
 
-I have removed players from the dataset whose NFL careers were cut prematurely short either voluntarily or involuntarily (due to injury, not ability).  These players' ratings (or lack thereof) are not representative of their production and thus only serve to complicate the dataset and confuse any modeling attempts.  Examples include Aaron Hernandez, Gaines Adams, and Chris Borland.
+I have removed players from the dataset whose NFL careers were cut prematurely short either voluntarily or involuntarily (due to injury, not ability).  These players' ratings (or lack thereof) are not representative of their production and thus only serve to complicate the dataset and confuse any modeling attempts.  Examples include Aaron Hernandez, Gaines Adams, and Chris Borland.  The list is as long as it is depressing.
 
 There is also a subset of players who drastically changed position upon entering the league.  This is contrary to less extreme position changes (tackle to guard, cornerback to safety), which occur frequently.  These players have been removed because their college statistics create noisy data.  Examples: Denard Robinson, Devin Hester, J.R. Sweezy.
 
@@ -130,21 +130,36 @@ Perhaps the most essential component of a machine learning model is feature engi
 
 Modern feeling toward physical measurements taken at the Combine is highly dubious, and I agree that each measurement taken in isolation cannot alone adequately define athleticism, much less predict success.  However, there exist more complex metrics which can better perform both tasks across a large enough sample.  
 
-*Body Mass Index (BMI)* - body weight (kg) divided by height (sq. meters); an attempt to measure the relative amount of mass in an individual
+*Body Mass Index (BMI)* 
+body weight (kg) divided by squared height (meters); an attempt to measure the relative amount of mass in an individual
 
-*Speed Score* - https://www.footballoutsiders.com/stat-analysis/2018/speed-score-2018; an attempt to contextualize speed, rewards heavier players, all else equal.  Top performers: Vernon Davis, Calvin Johnson
+*Speed Score* 
+https://www.footballoutsiders.com/stat-analysis/2018/speed-score-2018; an attempt to contextualize speed, rewards heavier players, all else equal
+Top performers: Vernon Davis, Calvin Johnson
 
-*Height-Adjusted Speed Score* - http://moneyinthebananastand.com/2012/04/24/dominator-rating-height-adjusted-speed-score-and-wr-draft-rankings/; an attempt to improve upon Speed Score, rewards taller players, all else equal.  Top performers: Jadeveon Clowney, Lane Johnson
+*Height-Adjusted Speed Score* 
+http://moneyinthebananastand.com/2012/04/24/dominator-rating-height-adjusted-speed-score-and-wr-draft-rankings/; an attempt to improve upon Speed Score, rewards taller players, all else equal  
+Top performers: Jadeveon Clowney, Lane Johnson
 
-*Vertical Jump Power* - https://www.topendsports.com/testing/vertical-jump-power.htm; an attempt to measure lower body force generation using Sayers Power formula.  Top performers: Mario Williams, Ndamukong Suh
+*Vertical Jump Power* 
+https://www.topendsports.com/testing/vertical-jump-power.htm; an attempt to measure lower body force generation using Sayers Power formula  
+Top performers: Mario Williams, Ndamukong Suh
 
-*Broad Jump Power* - Same as Vertical Jump power, using Broad Jump.  Top performers: Jamie Collins, Calvin Johnson
+*Broad Jump Power* 
+Same as Vertical Jump power, using Broad Jump
+Top performers: Jamie Collins, Calvin Johnson
 
-*Quickness Score* - Same as Speed Score, replacing 40-Yard Dash time with mean of 10-Yard Split, 20-Yard Shuttle, and 3 Cone Drill.  Top performers: J.J. Watt, A.J. Hawk
+*Quickness Score* 
+Same as Speed Score, replacing 40-Yard Dash time with mean of 10-Yard Split, 20-Yard Shuttle, and 3 Cone Drill
+Top performers: J.J. Watt, A.J. Hawk
 
-*Weight-Adjusted Bench* - 225 * bench press reps, divided by body weight, then adjusted by arm length; rewards player with longer arms, all else equal.  Top performers: Stephen Paea, Chris Houston
+*Weight-Adjusted Bench* 
+225 * bench press reps, divided by body weight, then adjusted by arm length; rewards player with longer arms, all else equal
+Top performers: Stephen Paea, Chris Houston
 
-*Catch Radius* - 3-dimensional space occupied by the player.  Dimension 1: height, vertical jump, arm length.  Dimension 2: broad jump, distance covered at top speed.  Dimension 3: wingspan, lateral quickness.  Top performers: Julio Jones, Antonio Cromartie
+*Catch Radius* 
+3-dimensional space occupied by the player.  Dimension 1: height, vertical jump, arm length.  Dimension 2: broad jump, distance covered at top speed.  Dimension 3: wingspan, lateral quickness
+Top performers: Julio Jones, Antonio Cromartie
 
 
 
