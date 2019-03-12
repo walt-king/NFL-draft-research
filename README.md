@@ -100,6 +100,34 @@ A dataset with this much uncertainty lends itself well to fuzzy set theory.  In 
 
 Fuzzy Set Theory explanation - https://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/sbaa/report.fuzzysets.html
 
+My approach is to generate a random forest model on the discrete data, then fit 1000 iterations on randomly shuffled data to generate a distribution of outcomes for each player.  This "shuffling" will occur randomly for each measurement using a normal distribution centered around the discrete number, with sigma equal to one half of the standard deviations recorded above. 
+
+In a single random forest, data is crisply split by decision trees based on discrete information.  But with enough randomly shuffled iterations, the trees are no longer binary decisions but rather probabilistic ones centered on each measurement's distribution.  This is particularly relevant for players who may have measurements near decision tree boundaries.  Two players with sprint times separated by mere hundredths of a second are not appreciably different in speed, but a random forest might classify them as such.
+
+The purpose of shuffling is not to fundamentally change each player's physical characteristics, rather to acknowledge measurement uncertainty.  Using Patrick Willis as an example, we can see now that there is a distribution of measurements being considered.  These were the first 3 randomly shuffled sets for Willis:
+
+| Measurement |	Original |	Random Shuffling |
+| :---: | :---: | :---: |
+| Weight |	242 |	239, 243, 240 |
+| 40 Yard Dash |	4.50 |	4.51, 4.50, 4.48 |
+| 20 Yard Split |	2.64 |	2.67, 2.65, 2.68 |
+| 10 Yard Split	| 1.59 |	1.61, 1.59, 1.63 |
+| Bench Press |	22 |	21, 22, 20 |
+| Vertical Jump |	39 |	40, 40, 40 |
+| Broad Jump |	119 |	118, 117, 124 |
+| 20 Yard Shuttle |	4.43 |	4.45, 4.52, 4.40 |
+| 3 Cone Drill |	7.21 |	7.18, 7.34, 7.33 |
+
+
+We have a wealth of NFL Combine and Pro Day data but not every player has participated in every drill, so we'll need to fill in missing values.
+
+Because many of these physical measurements are correlated and most football positions require some degree physical specialization (size, speed, etc.), I've chosen a k nearest neighbor imputation method.  The belief is that if Players A and B are similar in terms of position, size, speed, and quickness, then the two players will also have similar strength or jumping ability.  The exceptions are draft age and wingspan, which can be reasonably predicted using population means.
+
+![alt text](https://i.imgur.com/Qd6gLQ0/to/img.png)
+
+
+
+
 
 
 
