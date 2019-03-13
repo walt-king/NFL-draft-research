@@ -102,7 +102,7 @@ A dataset with this much uncertainty lends itself well to fuzzy set theory.  In 
 
 Fuzzy Set Theory explanation - https://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/sbaa/report.fuzzysets.html
 
-My approach is to generate a random forest model on the discrete data, then fit 1000 iterations on randomly shuffled data to generate a distribution of outcomes for each player.  This "shuffling" will occur randomly for each measurement using a normal distribution centered around the discrete number, with sigma equal to one half of the standard deviations recorded above. 
+My approach is to generate a random forest model on the discrete data, then fit 1000 iterations on randomly shuffled data to generate a distribution of outcomes for each player.  This "shuffling" will occur randomly for each measurement using a normal distribution centered around the discrete number, with sigma equal to the standard deviations recorded above. 
 
 In a single random forest, data is crisply split by decision trees based on discrete information.  But with enough randomly shuffled iterations, the trees are no longer binary decisions but rather probabilistic ones centered on each measurement's distribution.  This is particularly relevant for players who may have measurements near decision tree boundaries.  Two players with sprint times separated by mere hundredths of a second are not appreciably different in speed, but a random forest might classify them as such.
 
