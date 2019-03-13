@@ -2,6 +2,8 @@
 
 To build an NFL draft model capable of producing meaningful player predictions.  I plan to do so using a fuzzy Random Forest trained on NFL Combine and Pro Day physical measurements, individual and team college statistics, and engineered features.  Player performance is impacted by round and team selection in the draft - first-round selections receive more opportunities than seventh-round selections, different schemes fit some players better.  Because of this the model performance can be greatly improved by including some regression to publicly available consensus draft rankings.
 
+A Random Forest model is appropriate for this dataset because of the relatively small number of observations (roughly 250-300 players per draft class) and the highly non-linear relationship between the input and output variables.  Random Forests are fairly robust against overfitting, which is a concern when modelling noisy data.
+
 # Model Output
 
 I've decided to take the novel approach of using player ratings from EA Sports' Madden video game franchise as a proxy for player production, skill, and value.  This is beneficial for a number of reasons.  The first is that these ratings provide continuous output on a consistent scale across both years and positions; a player rated 99 overall is considered to be elite at their position, regardless of the unique responsibilities or challenges in quantifying performance specific to that position.  The second reason is that Madden ratings predate modern quantitative evaluative metrics like those provided by Football Outsiders or Pro Football Focus. 
@@ -172,9 +174,27 @@ Modern feeling toward physical measurements taken at the Combine is highly dubio
 - *Top performers*: Julio Jones, Antonio Cromartie
 
 
+# Cross-Validation and Tuning
 
+I've tuned the model using stratified k-fold cross validation, leaving out each draft class as OOB observations.  As a result, every player has been included in both the training and validation sets.  Each position group has been fit with its own unique hyperparameters to optimize predictions.
 
+**Hyperparameters by Position Group**
 
+| Position | Number of Trees | Max Depth | Max Features | Min Leaf Samples |
+| :---: | :---: | :---: | :---: | :---: |
+| WR | 100 | 5 | 10 | 3 |
+| FS | 250 | 10 | 10 | 3 |
+| CB | 50 | 10 | 20 | 2 |
+| SS | 40 | 10 | 10 | 2 |
+| ILB | 30 | 10 | 5 | 2 |
+| RB | 40 | 10 | 10 | 1 |
+| TE | 20 | 10 | 3 | 2 |
+| EDGE LB | 20 | 5 | 3 | 2 |
+| EDGE DL | 50 | 10 | 10 | 1 |
+| C | 50 | 5 | 5 | 3 |
+| DT | 20 | 5 | 10 | 2 |
+| OT | 20 | 10 | 3 | 2 |
+| OG | 20 | 10 | 5 | 2 |
 
 
 
