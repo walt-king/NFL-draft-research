@@ -172,20 +172,20 @@ I've tuned the model using stratified k-fold cross validation, leaving out each 
 | Position | Number of Trees | Max Depth | Max Features | Min Leaf Samples |
 | :---: | :---: | :---: | :---: | :---: |
 | WR | 100 | 5 | 10 | 3 |
-| FS | 250 | 10 | 10 | 3 |
+| FS | 250 | 5 | 10 | 1 |
 | CB | 50 | 10 | 20 | 2 |
 | SS | 40 | 10 | 10 | 2 |
-| ILB | 30 | 10 | 5 | 2 |
+| ILB | 30 | 15 | 5 | 2 |
 | RB | 40 | 10 | 10 | 1 |
 | TE | 20 | 10 | 3 | 2 |
-| EDGE LB | 20 | 5 | 3 | 2 |
-| EDGE DL | 50 | 10 | 10 | 1 |
+| EDGE LB | 50 | 5 | 10 | 2 |
+| EDGE DL | 250 | 15 | 10 | 2 |
 | C | 50 | 5 | 5 | 3 |
-| DT | 20 | 5 | 10 | 2 |
-| OT | 20 | 10 | 3 | 2 |
+| DT | 100 | 3 | 10 | 1 |
+| OT | 20 | 5 | 3 | 2 |
 | OG | 20 | 10 | 5 | 2 |
 
-Additionally, the model performs best when aggregating predictions from 3 randomized sets, as shown in the plot below.  However, this fuzzy approach failed to outperform discrete features during cross-validation.  I expected the opposite, but it seems treating each measurement as precise leads to the best fit.
+Additionally, the model performed best when aggregating predictions from 3 randomized sets, as shown in the plot below.  However, this fuzzy approach failed to outperform discrete features during cross-validation.  I expected the opposite, but it seems treating each measurement as precise leads to the best fit.
 
 ![alt_text](https://i.imgur.com/U4BxaGc.png)
 
