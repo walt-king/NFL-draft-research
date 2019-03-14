@@ -196,9 +196,9 @@ I've tuned the model using stratified k-fold cross validation, leaving out each 
 | OT | 20 | 10 | 3 | 2 |
 | OG | 20 | 10 | 5 | 2 |
 
-Additionally, the model performs best when aggregating predictions from 10 randomized sets.  If all Combine and Pro Day measurements were to be treated as discrete values, the model would be fit on 1 set and would result in higher error.  The plot below illustrates the benefit of treating physical measurements as fuzzy rather than precise, with RMSE on the y axis plotted against the number of random iterations.
+Additionally, the model performs best when aggregating predictions from 5 randomized sets.  If all Combine and Pro Day measurements were to be treated as exact values, the model would be fit on 1 set and would result in higher error.  The plot below illustrates the benefit of treating physical measurements as fuzzy rather than precise, with RMSE on the y axis plotted against the number of random iterations.
 
-![alt_text](https://i.imgur.com/WKMJCNm.png)
+![alt_text](https://i.imgur.com/uPBgCe6.png)
 
 
 
