@@ -56,7 +56,7 @@ for m in [5]:
             iteration = 1
             for position_group in ['CB','FS','SS','ILB','EDGE_DL','EDGE_LB','DT','WR','RB','TE','OT','OG','C']:
             #for position_group in ['WR']:
-                draftData = pd.read_csv(r'C:\Users\Walter King\Documents\Combine Data\data_files\combined_draft_classes_randomForest.csv')
+                draftData = pd.read_csv(r'file_directory.csv')
                 for s in stat_list:
                     try:
                         draftData[s].fillna(draftData.groupby(['position','pos_group'])[s].transform("median"), inplace=True)
