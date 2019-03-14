@@ -1,0 +1,184 @@
+{
+ "full_name": "Patrick Willis",
+ "first_name": "Patrick",
+ "last_name": "Willis",
+ "draft_team": "49ers",
+ "college": "Mississippi",
+ "position": "ILB",
+ "pos_group": "LB",
+ "birth_date": "1/25/1985",
+ "draftInfo": [
+   {
+    "draft_age": 22.3,
+    "underclassman": 0,
+    "class": "Sr",
+    "year": 2007,
+    "round": 1,
+    "pick": 11,
+    "overall": 11,
+    "ds_rank": 12
+   }
+],
+ "nflCombineData": [
+   {
+    "ht": 73.125,
+    "wt": 242,
+    "yd40": 4.56,
+    "yd20": 2.68,
+    "yd10": 1.61,
+    "bench": 22,
+    "vert": 39,
+    "broad": 119,
+    "shut20": 4.46,
+    "cone3": 7.23,
+    "hand_size": 9.75,
+    "arm_length": 34.00,
+    "wingspan": NaN
+   }
+],
+ "proDayData": [
+   {
+    "yd40": 4.37,
+    "yd20": 2.54,
+    "yd10": 1.52,
+    "bench": NaN,
+    "vert": NaN,
+    "broad": NaN,
+    "shut20": 4.37,
+    "cone3": 7.10,
+   }
+],
+ "aggregatedData": [
+   {
+    "ht": 73.125,
+    "wt": 242,
+    "yd40": 4.50,
+    "yd20": 2.64,
+    "yd10": 1.59,
+    "bench": 22,
+    "vert": 39,
+    "broad": 119,
+    "shut20": 4.43,
+    "cone3": 7.21,
+    "hand_size": 9.75,
+    "arm_length": 34.00,
+    "wingspan": NaN
+   }
+],
+ "imputedData": [
+   {
+    "ht": 73.125,
+    "wt": 242,
+    "yd40": 4.50,
+    "yd20": 2.64,
+    "yd10": 1.59,
+    "bench": 22,
+    "vert": 39,
+    "broad": 119,
+    "shut20": 4.43,
+    "cone3": 7.21,
+    "hand_size": 9.75,
+    "arm_length": 34.00,
+    "wingspan": 76.46
+   }
+],
+ "collegeTeamData": [
+   {
+    "year": 2006,
+    "school": "Ole Miss",
+    "conference": "SEC",
+    "non_fbs": 0,
+    "team_g": 12,
+    "off_pass_att": 23.3,
+    "off_rush_att": 35.2,
+    "def_pass_att": 28.3,
+    "def_rush_att": 38.3,
+    "team_sp": -3.2,
+    "offense_sp": 20.1,
+    "defense_sp": 23.7,
+    "schedule_sp": 0.827
+   }
+],
+ "collegeStatistics": [
+   {
+    "cfb_reference_url": "http://www.sports-reference.com/cfb/players/patrick-willis-1.html",
+    "g": 12,
+    "rush_att": NaN,
+    "rush_yds": NaN,
+    "rush_td": NaN,
+    "rec": NaN,
+    "rec_yds": NaN,
+    "rec_td": NaN,
+    "kret": NaN,
+    "kyds": NaN,
+    "ktd": NaN,
+    "pret": NaN,
+    "pyds": NaN,
+    "ptd": NaN,
+    "tkl": 87,
+    "ast_tkl": 50,
+    "tfl": 11.5,
+    "sk": 3.0,
+    "int": 0,
+    "int_td": 0,
+    "pass_def": 7,
+    "ff": 2,
+    "fr": 1,
+    "fr_td": 0
+   }
+],
+ "neutralizedStatistics": [
+   {
+    "adj_att": NaN,
+    "adj_ruyds": NaN,
+    "adj_rutd": NaN,
+    "adj_rec": NaN,
+    "adj_reyds": NaN,
+    "adj_retd": NaN,
+    "adj_scrim_yds": NaN,
+    "adj_off_td": NaN,
+    "adj_tkl": 7.08,
+    "adj_ast_tkl": 4.07,
+    "adj_tot_tkl": 9.11,
+    "adj_run_stuff": 0.65,
+    "adj_sk": 0.24,
+    "adj_tfl": 0.89,
+    "adj_int": 0.00,
+    "adj_pass_def": 0.62,
+    "adj_ff": 0.18,
+    "adj_fr": 0.09,
+    "int_td": 0,
+    "fr_td": 0,
+    "ktd": 0,
+    "ptd": 0,
+    "def_td": 0,
+    "non_off_td": 0
+   }
+],
+ "engineeredFeatures": [
+   {
+    "bmi": 31.81,
+    "speed_score": 118.0,
+    "ht_adj_speed_score": 117.1,
+    "vert_power": 8931,
+    "broad_power": 21265,
+    "quickness_score": 128.0,
+    "adj_bench": 21.8,
+    "catch_radius": 553.9,
+    "off_usage": NaN,
+    "rel_usage": NaN,
+    "disruption": 10.88,
+    "rel_disruption": 1.65,
+    "weighted_def_sp": 1.52
+   }
+],
+ "maddenRatings": [
+   {
+    "aggregate": 98.1,
+    "year1": 96,
+    "year2": 98,
+    "year3": 99,
+    "year4": 98
+   }
+]
+}    
