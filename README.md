@@ -1,8 +1,10 @@
 # Research Goal
 
-To build an NFL draft model capable of producing meaningful player predictions.  I plan to do so using a fuzzy Random Forest trained on NFL Combine and Pro Day physical measurements, individual and team college statistics, and engineered features.  Player performance is impacted by round and team selection in the draft - first-round selections receive more opportunities than seventh-round selections, different schemes fit some players better.  Because of this the model performance can be greatly improved by including some regression to publicly available consensus draft rankings.
+To build an NFL draft model capable of producing meaningful player predictions.  I had originally planned to do so using a fuzzy Random Forest trained on NFL Combine and Pro Day physical measurements, individual and team college statistics, and engineered features.  The model produced superior results when treating physical measurements as crisp rather than fuzzy, which was surprising but nonetheless forced me to change my approach.
 
 A Random Forest model is appropriate for this dataset because of the relatively small number of observations (roughly 250-300 players per draft class) and the highly non-linear relationship between the input and output variables.  Random Forests are fairly robust against overfitting, which is a concern when modelling noisy data.
+
+Player performance is impacted by round and team selection in the draft - first-round selections receive more opportunities than seventh-round selections, different schemes fit some players better.  Because of this the model performance can be greatly improved by including some regression to publicly available consensus draft rankings.
 
 # Model Output
 
@@ -102,24 +104,11 @@ A dataset with this much uncertainty lends itself well to fuzzy set theory.  In 
 
 Fuzzy Set Theory explanation - https://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/sbaa/report.fuzzysets.html
 
-My approach is to generate a random forest model on the discrete data, then fit 1000 iterations on randomly shuffled data to generate a distribution of outcomes for each player.  This "shuffling" will occur randomly for each measurement using a normal distribution centered around the discrete number, with sigma equal to the standard deviations recorded above. 
+My approach is to generate a random forest model on the discrete data, then fit n iterations on randomly shuffled data to generate a distribution of outcomes for each player.  This "shuffling" will occur randomly for each measurement using a normal distribution centered around the discrete number, with sigma equal to half of the standard deviations recorded above. 
 
-In a single random forest, data is crisply split by decision trees based on discrete information.  But with enough randomly shuffled iterations, the trees are no longer binary decisions but rather probabilistic ones centered on each measurement's distribution.  This is particularly relevant for players who may have measurements near decision tree boundaries.  Two players with sprint times separated by mere hundredths of a second are not appreciably different in speed, but a random forest might classify them as such.
+In a single random forest, data is crisply split by decision trees based on discrete information.  But with enough randomly shuffled iterations, the trees are no longer binary decisions but rather probabilistic ones centered on each measurement's distribution.  This is particularly relevant for players who may have measurements near decision tree boundaries.  Two players with sprint times separated by mere hundredths of a second are not appreciably different in speed, but a random forest might classify them as such.  My belief is that this will improve the model outputs over a large enough number of trials.
 
-The purpose of shuffling is not to fundamentally change each player's physical characteristics, rather to acknowledge measurement uncertainty.  Using Patrick Willis as an example, we can see now that there is a distribution of measurements being considered.  These were the first 3 randomly shuffled sets for Willis:
-
-| Measurement |	Original |	Random Shuffling |
-| :---: | :---: | :---: |
-| Weight |	242 |	239, 243, 240 |
-| 40 Yard Dash |	4.50 |	4.51, 4.50, 4.48 |
-| 20 Yard Split |	2.64 |	2.67, 2.65, 2.68 |
-| 10 Yard Split	| 1.59 |	1.61, 1.59, 1.63 |
-| Bench Press |	22 |	21, 22, 20 |
-| Vertical Jump |	39 |	40, 40, 40 |
-| Broad Jump |	119 |	118, 117, 124 |
-| 20 Yard Shuttle |	4.43 |	4.45, 4.52, 4.40 |
-| 3 Cone Drill |	7.21 |	7.18, 7.34, 7.33 |
-
+The purpose of shuffling is not to fundamentally change each player's physical characteristics, rather to acknowledge measurement uncertainty.  Using Patrick Willis as an example, we can see now that there is a distribution of measurements being considered.
 
 We have a wealth of NFL Combine and Pro Day data but not every player has participated in every drill, so we'll need to fill in missing values.  Because many of these physical measurements are correlated and most football positions require some degree physical specialization (size, speed, etc.), I've chosen a k nearest neighbor imputation method.  The belief is that if Players A and B are similar in terms of position, size, speed, and quickness, then the two players will also have similar strength or jumping ability.  The exceptions are draft age and wingspan, which can be reasonably predicted using population means.
 
@@ -196,9 +185,20 @@ I've tuned the model using stratified k-fold cross validation, leaving out each 
 | OT | 20 | 10 | 3 | 2 |
 | OG | 20 | 10 | 5 | 2 |
 
-Additionally, the model performs best when aggregating predictions from 5 randomized sets.  If all Combine and Pro Day measurements were to be treated as exact values, the model would be fit on 1 set and would result in higher error.  The plot below illustrates the benefit of treating physical measurements as fuzzy rather than precise, with RMSE on the y axis plotted against the number of random iterations.
+Additionally, the model performs best when aggregating predictions from 3 randomized sets, as shown in the plot below.  However, this fuzzy approach failed to outperform discrete features during cross-validation.  I expected the opposite, but it seems treating each measurement as precise leads to the best fit.
 
-![alt_text](https://i.imgur.com/uPBgCe6.png)
+![alt_text](https://i.imgur.com/U4BxaGc.png)
+
+**RMSE Using Various Methods**
+
+| Method | RMSE |
+| :---: | :---: |
+| Discrete | 8.027 |
+| 1 Random set | 8.122 |
+| 2 Random sets | 8.069 |
+| 3 Random sets | 8.063 |
+| 5 Random sets | 8.098 |
+| 10 Random sets | 8.115 |
 
 
 
