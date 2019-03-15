@@ -4,7 +4,7 @@ To build an NFL draft model capable of producing meaningful player predictions. 
 
 A Random Forest model is appropriate for this dataset because of the relatively small number of observations (roughly 250-300 players per draft class) and the highly non-linear relationship between the input and output variables.  Random Forests are fairly robust against overfitting, which is a concern when modelling noisy data.
 
-Player performance is impacted by round and team selection in the draft - first-round selections receive more opportunities than seventh-round selections, different schemes fit some players better.  Because of this the model performance can be greatly improved by including some regression to publicly available consensus draft rankings.
+Player performance is impacted by round and team selection in the draft - first-round selections receive more opportunities than seventh-round selections, different schemes fit some players better.  Because of this the model performance can be greatly improved by including some regression to draft selection or, in the case of test data, public rankings.
 
 # Model Output
 
@@ -23,6 +23,8 @@ While this metric on the whole does a good job of ranking player talent and prod
 In the NFL, the drafting team maintains the exclusive right to employ each player for 4 years following their selection, thus it is incumbent upon the team to select and develop players who provide the most value during that period.  For that reason I stand by the decision to evaluate draft selections only on a player's first 4 years in the league.  
 
 # Dataset
+
+I wrote several web scraping programs to pull data from NFL Draft Scout (an excellent resource for Combine data, and the only source I'm aware of that includes Pro Day data), Pro-Football-Reference, and CFB Reference (both Sports-Reference-operated sites, easily the best sources for football statistics in the NFL or FBS).
 
 The dataset covers the 2006-2014 draft classes and includes players who were ranked in NFL Draft Scout's top 300 in their draft year.  I have removed all quarterbacks, kickers, punters, long snappers, and fullbacks due to the relatively small sample sizes or extreme specialization that each position requires.  It might be valuable to evaluate these positions later – particularly quarterbacks – but for now the model focuses exclusively on 13 "skill" positions, bucketed into 7 position groups.
 
@@ -201,6 +203,15 @@ Additionally, the model performed best when aggregating predictions from 3 rando
 | 10 Random sets | 8.115 |
 
 
+# Results and Further Research #
+
+Model outputs from validation can be viewed here: https://docs.google.com/spreadsheets/d/1-ooQ4UTafyFOTWDtbYGmPgdHfspY8bci45tUS6I5-LU/edit?usp=sharing
+
+By and large the model does surprisingly well considering the lack of more traditional evaluative inputs.  NFL teams have the resources of scouting departments providing more detailed player evaluation, experienced coaching staffs evaluating personnel fits, and front offices to balance financial considerations and positional value.  Each of these factor into draft decisions and improve ranking methods beyond the scope of this model.
+
+The model struggles most with offensive lineman, who lack individual statistics.  In particular it struggles with centers, whose responsibilities in the NFL are as much mental as physical.  Interestingly, NFL teams have had great success evaluating centers, as 4 of the 5 first rounders were named to All-Pro teams in their careers, and all made the Pro Bowl at some point.
+
+As mentioned in the introduction, the model could be improved substantially by including draft selection or consensus rankings.  Furthermore, team-specific random effects could likely explain some of the residuals.  I may eventually explore these research questions, but my short-term priorities are on visualization and presentation of data. 
 
 
 
