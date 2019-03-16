@@ -11,7 +11,7 @@ pos <- "TE"
 player <- "Rob Gronkowski"
 
 
-combine <- read.csv('C:/Users/Walter King/Documents/Combine Data/data_files/combined_draft_classes_randomForest.csv')
+combine <- read.csv('file_directory')
 combine <- subset(combine, select = c("full_name","position","year","ht","wt","hand_size","arm_length"
                                 ,"speed_score","vert_power","broad_power","quickness_score","adj_bench"
                                 ,"catch_radius","adj_att","adj_ruyds","adj_rutd","adj_rec","adj_reyds"
@@ -43,7 +43,7 @@ plot_subset <- plot_subset[4:13]
 names(plot_subset) <- c("Height","Weight","Hand Size","Arm Length","Speed","Vert","Broad"
                        ,"Quickness","Bench","Catch Radius")
 
-png('C:/Users/Walter King/Documents/Combine Data/image_files/temp_radar.png')
+png('image_upload.png')
 
 radarchart(plot_subset, axistype = 1
            ,pcol=rgb(0.2,0.5,0.5,0.9) , pfcol=rgb(0.2,0.5,0.5,0.5) , plwd=2
@@ -53,7 +53,7 @@ radarchart(plot_subset, axistype = 1
 
 dev.off()
 
-radar_img <- readPNG('C:/Users/Walter King/Documents/Combine Data/image_files/temp_radar.png')
+radar_img <- readPNG('image_upload.png')
 
 p1<-ggplot(data = plot_subset) + coord_fixed() + 
   annotation_custom(rasterGrob(radar_img
@@ -80,7 +80,7 @@ bar_subset$bar_x <- factor(bar_subset$bar_x
                            ,levels = c("Att","Rush Yds","Rush TD","Rec","Rec Yds","Rec TD","Scrim Yds"
                                        ,"Total TD","Return TD","Usage Rate"))
 
-png('C:/Users/Walter King/Documents/Combine Data/image_files/temp_bar.png')
+png('image_upload.png')
 
 ggplot(data=bar_subset, aes(x = bar_x, y = bar_y, fill = bar_y)) +
   geom_bar(stat="identity") + 
@@ -100,7 +100,7 @@ ggplot(data=bar_subset, aes(x = bar_x, y = bar_y, fill = bar_y)) +
 
 dev.off()
 
-bar_img <- readPNG('C:/Users/Walter King/Documents/Combine Data/image_files/temp_bar.png')
+bar_img <- readPNG('image_upload.png')
 
 p2<-ggplot(data = bar_subset) + coord_fixed() + 
   annotation_custom(rasterGrob(bar_img
@@ -108,8 +108,6 @@ p2<-ggplot(data = bar_subset) + coord_fixed() +
                                ,height = unit(1,"npc"))
                     ,-Inf, Inf, -Inf, Inf)
 
-
-#grid.arrange(p1, p2, nrow = 1)
 
 title <- ggdraw() + draw_label(paste(player, "-- ", pos, "/", year), fontface='bold')
 
