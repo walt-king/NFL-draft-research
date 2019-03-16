@@ -207,7 +207,7 @@ Model outputs from validation can be viewed here: https://docs.google.com/spread
 
 By and large the model does surprisingly well considering the lack of more traditional evaluative inputs.  NFL teams have the resources of scouting departments providing more detailed player evaluation, experienced coaching staffs evaluating personnel fits, and front offices to balance financial considerations and positional value.  Each of these factor into draft decisions and improve ranking methods beyond the scope of this model.
 
-The model struggles most with offensive lineman, who lack individual statistics.  In particular it struggles with centers, whose responsibilities in the NFL are as much mental as physical.  Interestingly, NFL teams have had great success evaluating centers, as 4 of the 5 first rounders were named to All-Pro teams in their careers, and all made the Pro Bowl at some point.
+Unsurprisingly, the model struggles most with offensive linemen, who lack individual statistics.  In particular it struggles with centers, whose responsibilities in the NFL are as much mental as physical.  Interestingly, NFL teams have had great success evaluating centers, as 4 of the 5 first rounders were named to All-Pro teams in their careers, and all made the Pro Bowl at some point.
 
 As mentioned in the introduction, the model could be improved substantially by including draft selection or consensus rankings.  Furthermore, team-specific random effects could likely explain some of the residuals.  I may eventually explore these research questions, but my short-term priorities are on visualization and presentation of data. 
 
