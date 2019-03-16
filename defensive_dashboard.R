@@ -10,7 +10,7 @@ library(cowplot)
 pos <- "SS"
 player <- "Taylor Mays"
 
-combine <- read.csv('C:/Users/Walter King/Documents/Combine Data/data_files/combined_draft_classes_randomForest.csv')
+combine <- read.csv('file_directory')
 combine <- subset(combine, select = c("full_name","position","year","ht","wt","hand_size","arm_length"
                                 ,"speed_score","vert_power","broad_power","quickness_score","adj_bench"
                                 ,"catch_radius","adj_tot_tkl","adj_run_stuff","adj_sk","adj_tfl","adj_int"
@@ -42,7 +42,7 @@ plot_subset <- plot_subset[4:13]
 names(plot_subset) <- c("Height","Weight","Hand Size","Arm Length","Speed","Vert","Broad"
                        ,"Quickness","Bench","Catch Radius")
 
-png('C:/Users/Walter King/Documents/Combine Data/image_files/temp_radar.png')
+png('image_upload.png')
 
 radarchart(plot_subset, axistype = 1
            ,pcol=rgb(0.2,0.5,0.5,0.9) , pfcol=rgb(0.2,0.5,0.5,0.5) , plwd=2
@@ -52,7 +52,7 @@ radarchart(plot_subset, axistype = 1
 
 dev.off()
 
-radar_img <- readPNG('C:/Users/Walter King/Documents/Combine Data/image_files/temp_radar.png')
+radar_img <- readPNG('image_upload.png')
 
 p1<-ggplot(data = plot_subset) + coord_fixed() + 
   annotation_custom(rasterGrob(radar_img
@@ -79,7 +79,7 @@ bar_subset$bar_x <- factor(bar_subset$bar_x
                            ,levels = c("Tackles","Run Stops","Sacks","TFL","INT","Pass Def","FF","FR"
                                        ,"Disruption","S&P+ Share"))
 
-png('C:/Users/Walter King/Documents/Combine Data/image_files/temp_bar.png')
+png('image_upload.png')
 
 ggplot(data=bar_subset, aes(x = bar_x, y = bar_y, fill = bar_y)) +
   geom_bar(stat="identity") + 
@@ -99,7 +99,7 @@ ggplot(data=bar_subset, aes(x = bar_x, y = bar_y, fill = bar_y)) +
 
 dev.off()
 
-bar_img <- readPNG('C:/Users/Walter King/Documents/Combine Data/image_files/temp_bar.png')
+bar_img <- readPNG('image_upload.png')
 
 p2<-ggplot(data = bar_subset) + coord_fixed() + 
   annotation_custom(rasterGrob(bar_img
