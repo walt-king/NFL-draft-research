@@ -211,6 +211,8 @@ The model struggles most with offensive lineman, who lack individual statistics.
 
 As mentioned in the introduction, the model could be improved substantially by including draft selection or consensus rankings.  Furthermore, team-specific random effects could likely explain some of the residuals.  I may eventually explore these research questions, but my short-term priorities are on visualization and presentation of data. 
 
+Album of select draft prospect profiles: https://imgur.com/a/SCdkLj1
+
 
 
 
