@@ -72,6 +72,30 @@ This is a cherry-picked example but it does well to show that while raw statisti
 | Pace-Neutralized per Game | 8.029 |
 | Pace- and Schedule-Neutralized per Game | 8.058 |
 
+Here's the full stat list, with a few notable performers:
+
+**Offensive Statistics**
+- Rushing Attempts (Andre Williams, Kevin Smith)
+- Rushing Yards (Matt Forte, Ray Rice)
+- Rushing TD (Toby Gerhart, Ahmad Bradshaw)
+- Receptions (Greg Jennings, Zach Ertz)
+- Receiving Yards (Hakeem Nicks, Jarvis Landry)
+- Receiving TD (Demaryius Thomas, DeAndre Hopkins)
+- Scrimmage Yards
+- Total Offensive TD
+- Non-Offensive TD (C.J. Spiller, Maurice Jones-Drew)
+
+**Defensive Statistics**
+- Tackles (Luke Kuechly, Patrick Willis)
+- Run Stuffs (Navorro Bowman, Aaron Donald)
+- Sacks (Elvis Dumervil, Whitney Mercilus)
+- Total TFL (Ryan Kerrigan, Brandon Graham)
+- INT (Eric Weddle, Earl Thomas)
+- Passes Defended (Dee Milliner, J.J. Watt)
+- Fumbles Forced
+- Fumbles Recovered
+- Non-Offensive TD (Tyrann Mathieu, Darrelle Revis)
+
 
 # NFL Combine and Pro Day Measurements
 
