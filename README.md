@@ -162,6 +162,20 @@ Modern feeling toward physical measurements taken at the Combine is highly dubio
 - 3-dimensional space occupied by the player.  Dimension 1: height, vertical jump, arm length.  Dimension 2: broad jump, distance covered at top speed.  Dimension 3: wingspan, lateral quickness
 - *Top performers*: Julio Jones, Antonio Cromartie
 
+The models also include several features designed to summarize the collection of college statistics being used.
+
+**Offensive Usage**
+- Rushing attempts plus receptions.  On a neutralized scale, this captures the same information as market share.  An attempt to quantify how involved a player was in their college offense
+- *Top performers*: Percy Harvin, Matt Forte
+
+**Defensive Disruption**
+- Defensive equivalent to usage, an attempt to quantify how active each defensive player was.  The thought is that better players will make more plays
+- *Top performers*: Aaron Donald, Luke Kuechly
+
+**S&P Market Share**
+- Combines defensive disruption with team defensive S&P+.  Simply accruing defensive statistics doesn't tell whether the player was effective, so this is an attempt to link activity with effectiveness.  Rewards players who played on better teams, all else equal
+- *Top performers*: Ndamukong Suh, Dont'a Hightower
+
 
 # Cross-Validation and Tuning
 
@@ -207,7 +221,25 @@ Model outputs from validation can be viewed here: https://docs.google.com/spread
 
 By and large the model does surprisingly well considering the lack of more traditional evaluative inputs.  NFL teams have the resources of scouting departments providing more detailed player evaluation, experienced coaching staffs evaluating personnel fits, and front offices to balance financial considerations and positional value.  Each of these factor into draft decisions and improve ranking methods beyond the scope of this model.
 
-Unsurprisingly, the model struggles most with offensive linemen, who lack individual statistics.  In particular it struggles with centers, whose responsibilities in the NFL are as much mental as physical.  Interestingly, NFL teams have had great success evaluating centers, as 4 of the 5 first rounders were named to All-Pro teams in their careers, and all made the Pro Bowl at some point.
+**Model results by position**
+
+| Position | RMSE | n | Most Important Features |
+| :---: | :---: | :---: | :---: |
+| WR | 7.523 | 314 | Underclassman, Usage, Age, Srimmage Yards, Total TD, Receiving Yards |
+| FS | 7.621 | 128 | S&P Share, Age, SOS, 20-Yard Shuttle, Height, 40-Yard Dash |
+| CB | 7.604 | 292 | Age, Quickness Score, Height-Adjusted Speed Score, S&P Share, Height, 20-Yard Dash |
+| SS | 7.437 | 107 | Run Stuffs, BMI, Defensive Disruption, Quickness Score, Tackles, TFL |
+| ILB | 7.649 | 291 | S&P Share, Age, Tackles, Height-Adjusted Speed Score, Vert Power |
+| RB | 8.121 | 194 | Rush TD, Rush Yards, Age, Total TD, Scrimmage Yards, Height-Adjusted Speed Score |
+| TE | 8.097 | 139 | Scrimmage Yards, Receiving TD, Receiving Yards, Offensive Usage, Hand Size |
+| EDGE LB | 8.846 | 90 | S&P Share, Disruption, Catch Radius, Tackles, Weight, Age |
+| EDGE DL | 7.445 | 190 | Age, TFL, Weight, Height-Adjusted Speed Score, Quickness Score, Underclassman |
+| C | 8.948 | 82 | 3-Cone, Weight, Broad Jump, Quickness Score, Hand Size, Age |
+| DT | 7.823 | 211 | S&P Share, TFL, Tackles, Disruption, Run Stuffs, 3 Cone |
+| OT | 8.882 | 222 | Age, Vert Power, Arm Length, Speed Score, Weight |
+| OG | 8.819 | 140 | Adjusted Bench, 20-Yard Dash, Catch Radius, Quickness Score, Age, Weight |
+
+When properly optimized, the model can achieve RMSE below 8 during cross-validation. Unsurprisingly, it struggles most with offensive linemen, who lack individual statistics.  In particular it struggles with centers, whose responsibilities in the NFL are as much mental as physical.  Interestingly, NFL teams have had great success evaluating centers, as 4 of the 5 first rounders were named to All-Pro teams in their careers, and all made the Pro Bowl at some point.
 
 As mentioned in the introduction, the model could be improved substantially by including draft selection or consensus rankings.  Furthermore, team-specific random effects could likely explain some of the residuals.  I may eventually explore these research questions, but my short-term priorities are on visualization and presentation of data. 
 
