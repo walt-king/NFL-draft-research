@@ -271,9 +271,75 @@ Album of select draft prospect profiles: https://imgur.com/a/SCdkLj1
 
 
 
+# Updated Results and Test Data #
+
+I received good feedback from this Reddit thread: https://www.reddit.com/r/nfl/comments/b27abi/oc_building_an_nfl_draft_model_using_machine/, and have used it to make a few small but impactful changes to the model.  The first is to restrict feature inclusion to limit the risk of spurious results.  It doesn't make sense to include tackles for offensive players, nor rushing yards for defensive players.  It's best to remove these entirely so that the model can focus on meaningful splits.
+
+The second change is to expand the training set for each position to include other positions outside of that group.  This is most obvious in the case of positions without a clear distinction, such as most EDGE players.  In order to keep predictions and interpretations position-specific, I've ensured that the focus position remains the most populous position group within every set of training data.  It turns out that this strategy beneficial for every single position group, while also creating more robust training samples to be used on test data.  The model still struggles relatively with offensive linemen, but the improvement is seen across the board.
+
+| Position | Position Comps | Old RMSE | New RMSE |
+| :---: | :---: | :---: | :---: |
+| WR | RB, TE, CB | 7.523 | 7.170 |
+| FS | CB, SS, RB | 7.621 | 7.293 |
+| CB | FS, WR | 7.604 | 7.269 |
+| SS | FS, ILB | 7.437 | 7.390 |
+| ILB | EDGE LB, SS, WR | 7.649 | 7.326 |
+| RB | WR, ILB | 8.121 | 7.725 |
+| TE | WR, OT | 8.097 | 7.794 |
+| EDGE LB | EDGE DL, ILB | 8.846 | 8.318 |
+| EDGE DL | DT, EDGE LB, TE | 7.445 | 7.416 |
+| C | OG | 8.948 | 8.637 |
+| DT | EDGE DL, EDGE LB, ILB | 7.823 | 7.625 |
+| OT | OG, C, EDGE DL | 8.882 | 8.492 |
+| OG | OT, C | 8.819 | 8.456 |
+
+Moving on to the good stuff, here's a breakdown of a few notable players most impacted by the changes:
+
+| Player | Position | Change |
+| :---: | :---: | :---: |
+| Justin Durant | ILB | + 10.7 |
+| Chandler Jones | EDGE LB | + 8.5 |
+| Maurkice Pouncey | C | + 8.1 |
+| Eric Ebron | TE | + 7.8 |
+| Jadeveon Clowney | EDGE DL | + 7.2 |
+| Marshawn Lynch | RB | + 6.8 |
+| Tyson Alualu | DT | - 5.0 |
+| Stephen Hill | WR | - 5.3 |
+| Earl Mitchell | DT | - 6.1 |
+| Kenneth Darby | RB | - 7.5 |
+| James Hanna | TE | - 7.7 |
+| Dennis Pitta | TE | - 10.2 |
+
+There aren't any easily defined trends in the delta between the two models.  Generally speaking, however, including multiple position groups in the training data allows the model to better handle outliers in test data.  
+
+My next step was to throw unobserved data at the model to see how it would respond.  So far, I've used the 2016, 2017, and 2019 draft classes and am quite pleased with the results.  Consider the top 5 ranked players from 2016:
+
+- 1. Corey Coleman, selected #15 overall, didn't quite work out
+- 2. Jalen Ramsey, selected #5 overall, 1x All Pro, 2x Pro Bowl
+- 3. Ezekiel Elliott, selected #4 overall, 1x All Pro, 2x Pro Bowl
+- 4. Derrick Henry, selected #45 overall, 1000 rushing yards in 2018
+- 5. Joey Bosa, selected #3 overall, 1x Pro Bowl
+
+And 2017:
+
+- 1. T.J. Watt, selected #30 overall, 1x Pro Bowl
+- 2. Christian McCaffrey, selected #8 overall, 1900 scrimmage yards in 2018
+- 3. Curtis Samuel, #40 overall, limited by injury but talented when he plays
+- 4. John Ross, #9 overall, complete dud so far
+- 5. D'Onta Foreman, #89 overall, looked good before blowing out his Achilles
+
+And 2019:
+
+- 1. Quinnen Williams, projected Top 5 pick
+- 2. T.J. Hockenson, projected Top 15 pick
+- 3. Devin White, projected Top 10 pick
+- 4. NKeal Harry, projected First Round pick
+- 5. Maxx Crosby, projected 3rd/4th Round pick
 
 
+The full test outputs and updated validation sets can be viewed here: https://docs.google.com/spreadsheets/d/1-ooQ4UTafyFOTWDtbYGmPgdHfspY8bci45tUS6I5-LU/edit?usp=sharing
 
+A gallery of new player dashboards can be viewed here: https://imgur.com/a/acAFRt2
 
 
 
